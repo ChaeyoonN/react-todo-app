@@ -56,16 +56,25 @@ const TodoTemplate = () => {
     // react의 상태변수는 불변성(immutable)을 가지기 때문에
     // 기존 상태에서 변경은 불가능 -> 새로운 상태로 반들어서 변경해야 한다.
     setTodos((oldTodos) => {
-      // 콜백함수 부르면 기존 값 온다.(스냅샷)
+      // setter에서 콜백함수 부르면 기존 값 온다.(스냅샷)
       return [...oldTodos, newTodo];
     });
     // setTodos([...todos, newTodo]);
   };
 
+  // 할 일 삭제 처리 함수
+  const removeTodo = (id) => {
+    // 주어진 배열의 값들을 순회하여 조건에 맞는 요소들만 모아서 새로운 배열로 리턴.
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className='TodoTemplate'>
       <TodoHeader />
-      <TodoMain todoList={todos} />
+      <TodoMain
+        todoList={todos}
+        remove={removeTodo}
+      />
       <TodoInput addTodo={addTodo} />
     </div>
   );
