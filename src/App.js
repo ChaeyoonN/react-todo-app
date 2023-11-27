@@ -4,7 +4,7 @@ import './App.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import { Route, Routes } from 'react-router-dom';
-import { Login } from '@mui/icons-material';
+import Login from './components/user/Login';
 import Join from './components/user/Join';
 
 const App = () => {
