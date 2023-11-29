@@ -206,8 +206,8 @@ const Join = () => {
 
   // 비밀번호 확인란 체인지 이벤트 핸들러
   const pwCheckHandler = (e) => {
-    let msg,
-      flag = false;
+    let msg;
+    let flag = false;
     if (!e.target.value) {
       msg = '비밀번호 확인란은 필수입니다.';
     } else if (userValue.password !== e.target.value) {
